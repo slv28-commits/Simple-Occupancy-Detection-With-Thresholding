@@ -26,8 +26,8 @@ def find_occupancy(chessboard_squares, display, i, j):
     start_x = j * 64
     end_x = (j + 1) * 64
     start_y = i * 64
-    end_x = (i + 1) * 64
-    square = display[start_x:end_x, (i * 64):((i + 1) * 64)]
+    end_y = (i + 1) * 64
+    square = display[start_x:end_x, start_y:end_y]
     if (i % 2 != 0 and j % 2 != 0) or (i % 2 == 0 and j % 2 == 0):
         ret, thresh_square = cv.threshold(square, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
         num_black_square = np.sum(thresh_square == 0)
